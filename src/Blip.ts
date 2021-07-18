@@ -77,7 +77,7 @@ export class Blip {
 
   public set Name(name: string) {
     BeginTextCommandSetBlipName('STRING');
-    AddTextComponentSubstringPlayerName(name);
+    AddTextComponentString(name);
     EndTextCommandSetBlipName(this.handle);
   }
 
