@@ -7,7 +7,7 @@ export class Blip {
   protected handle: number;
 
   public static create(coords: Vector3): Blip {
-    return new Blip(AddBlipForCoord(coords[0], coords[1], coords[2]));
+    return new Blip(AddBlipForCoord(coords.x, coords.y, coords.z));
   }
 
   constructor(handle: number) {
