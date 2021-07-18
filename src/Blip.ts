@@ -1,6 +1,7 @@
 import { Vector3 } from './utils';
 import { BlipColor, BlipSprite } from './enums';
 import { Entity, Player } from './models';
+import { BlipDisplay } from './enums/Blip';
 
 export class Blip {
   protected handle: number;
@@ -66,7 +67,7 @@ export class Blip {
     SetBlipSprite(this.handle, sprite);
   }
 
-  public set Display(display: number) {
+  public set Display(display: BlipDisplay) {
     SetBlipDisplay(this.handle, display);
   }
 

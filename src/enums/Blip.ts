@@ -259,3 +259,12 @@ export enum BlipSprite {
   Crosshair2,
   DollarSignSquared = 434,
 }
+
+export enum BlipDisplay {
+  Hidden,
+  BothMapSelectable = 2,
+  MainMapSelectable,
+  MainMap,
+  MiniMap,
+  BothMapNotSelectable = 8
+}
