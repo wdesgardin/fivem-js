@@ -14,6 +14,7 @@ export { RaycastResult } from './Raycast';
 export { RelationshipGroup } from './RelationshipGroup';
 export { Tasks } from './Tasks';
 export { TaskSequence } from './TaskSequence';
+export { Vec3 } from './utils';
 
 // Lets export all from folders
 export * from './models';
