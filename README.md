@@ -34,7 +34,9 @@
   <a href="https://discord.d0p3t.nl">Discord</a>
 </p>
 
-Functionality of this wrapper is **based on the FiveM C# wrapper** - [link](https://github.com/citizenfx/fivem/tree/master/code/client/clrcore/External). It's a feature-rich set of helper classes, objects, and functions to help you develop your project faster.
+Functionality of this wrapper is **based on the FiveM C# wrapper** - [link](https://github.com/citizenfx/fivem/tree/master/code/client/clrcore/External). It's a feature-rich set of helper classes, objects, and functions to help you develop your project faster.  
+
+This library was originally created by <a href="https://github.com/d0p3t/fivem-js">d0p3t</a>. I am maintaining it for the moment for my personal use. 
 
 ## Features
 
