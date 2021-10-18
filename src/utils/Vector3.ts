@@ -13,7 +13,7 @@ export class Vector3 implements Vec3 {
     return new Vector3(v1.x, v1.y, v1.z);
   }
 
-  public static fromArray(vector: number[]) {
+  public static fromArray(vector: number[]): Vector3 {
     return new Vector3(vector[0] || 0, vector[1] || 0, vector[2] || 0);
   }
 
@@ -61,7 +61,7 @@ export class Vector3 implements Vec3 {
     return Vector3.divide(v, v.Length);
   }
 
-  public static absDistance2D(v1: Vec3, v2: Vec3) {
+  public static distance2D(v1: Vec3, v2: Vec3): number {
     return Math.abs(Math.sqrt(Math.pow(v1.x - v2.x, 2) + Math.pow(v1.y - v2.y, 2)));
   }
 
