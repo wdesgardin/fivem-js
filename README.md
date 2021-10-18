@@ -7,11 +7,11 @@
   <a href="https://github.com/wdesgardin/fivem-js/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat" alt="License: MIT">
   </a>
-  <a href="https://circleci.com/gh/d0p3t/fivem-js">
-    <img src="https://img.shields.io/circleci/build/github/d0p3t/fivem-js" alt="Build Status">
+  <a href="https://github.com/wdesgardin/fivem-js/actions/workflows/main.yml">
+    <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/wdesgardin/fivem-js/master">
   </a>
-  <a href="https://github.com/d0p3t/fivem-js/commits/master">
-    <img src="https://img.shields.io/github/last-commit/d0p3t/fivem-js.svg?style=flat" alt="Last commit">
+  <a href="https://github.com/wdesgardin/fivem-js/commits/master">
+    <img src="https://img.shields.io/github/last-commit/wdesgardin/fivem-js.svg?style=flat" alt="Last commit">
   </a>
 </p>
 
