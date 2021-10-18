@@ -1,6 +1,6 @@
 import { WeaponHash } from '../hashes';
-import { WeaponComponentHash } from './WeaponComponentHash';
 import { getUInt32FromUint8Array } from '../utils';
+import { WeaponComponentHash } from './WeaponComponentHash';
 
 /**
  * Mapping of WeaponHash -> WeaponComponentHashes
@@ -851,4 +851,4 @@ function initializeOnce() {
   };
 }
 
-initializeOnce()();
+if (!IsDuplicityVersion()) initializeOnce()();

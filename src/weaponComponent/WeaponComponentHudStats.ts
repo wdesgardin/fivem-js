@@ -1,6 +1,5 @@
+import { enumValues, getUInt32FromUint8Array } from '../utils';
 import { WeaponComponentHash } from './WeaponComponentHash';
-import { enumValues } from '../utils';
-import { getUInt32FromUint8Array } from '../utils';
 
 /***
  * WeaponComponentHudStats
@@ -63,4 +62,4 @@ function initializeOnce() {
   };
 }
 
-initializeOnce()();
+if (!IsDuplicityVersion()) initializeOnce()();

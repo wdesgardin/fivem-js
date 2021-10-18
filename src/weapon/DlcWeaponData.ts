@@ -1,6 +1,5 @@
 import { WeaponHash } from '../hashes';
-import { getUInt32FromUint8Array } from '../utils';
-import { getStringFromUInt8Array } from '../utils';
+import { getStringFromUInt8Array, getUInt32FromUint8Array } from '../utils';
 
 /**
  * DlcWeaponData
@@ -103,4 +102,4 @@ function initializeOnce() {
   };
 }
 
-initializeOnce()();
+if (!IsDuplicityVersion()) initializeOnce()();

@@ -1,5 +1,5 @@
-import { WeaponComponentHash } from './WeaponComponentHash';
 import { getStringFromUInt8Array, getUInt32FromUint8Array } from '../utils';
+import { WeaponComponentHash } from './WeaponComponentHash';
 
 /**
  * DlcWeaponComponentData
@@ -91,4 +91,4 @@ function initializeOnce() {
   };
 }
 
-initializeOnce()();
+if (!IsDuplicityVersion()) initializeOnce()();
