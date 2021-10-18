@@ -5,13 +5,13 @@
   <br>
   <br>
   <a href="https://github.com/wdesgardin/fivem-js/blob/master/LICENSE">
-    <img src="https://img.shields.io/badge/License-MIT-blue.svg?style=flat" alt="License: MIT">
+    <img src="https://img.shields.io/badge/License-MIT-blue.svg?logo=github" alt="License: MIT">
   </a>
   <a href="https://github.com/wdesgardin/fivem-js/actions/workflows/main.yml">
-    <img alt="GitHub branch checks state" src="https://img.shields.io/github/checks-status/wdesgardin/fivem-js/master">
+    <img alt="Github master branch state" src="https://img.shields.io/github/workflow/status/wdesgardin/fivem-js/CI?logo=github">
   </a>
   <a href="https://github.com/wdesgardin/fivem-js/commits/master">
-    <img src="https://img.shields.io/github/last-commit/wdesgardin/fivem-js.svg?style=flat" alt="Last commit">
+    <img src="https://img.shields.io/github/last-commit/wdesgardin/fivem-js.svg?logo=github" alt="Last commit">
   </a>
 </p>
 
@@ -33,9 +33,9 @@ In other words, whatever the FiveM C# wrapper can do, this package can as well a
 
 ## Download & Install
 
-`npm i fivem-js`
+Setup your personnal access token to [use Github Packages with npm](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token), then run
 
-https://www.npmjs.com/package/fivem-js
+`npm install @wdesgardin/fivem-js`
 
 ## Simple Usage
 
