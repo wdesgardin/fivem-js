@@ -222,7 +222,7 @@ export class Entity {
   }
 
   public set Opacity(value: number) {
-    SetEntityAlpha(this.handle, value, 0);
+    SetEntityAlpha(this.handle, value, false);
   }
 
   public resetOpacity(): void {

@@ -675,8 +675,10 @@ export class Ped extends Entity {
     SetPedResetFlag(this.handle, flagId, true);
   }
 
-  public clone(heading: number): Ped {
-    return new Ped(ClonePed(this.handle, heading, false, false));
+  public clone(heading?: number, isNetwork = true): Ped {
+    const ped = new Ped(ClonePed(this.handle, isNetwork, false, false));
+    if (ped?.exists() && heading) ped.Heading = heading;
+    return ped;
   }
 
   public exists(ped?: Ped): boolean {

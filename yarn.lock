@@ -23,10 +23,10 @@
     chalk "^2.0.0"
     js-tokens "^4.0.0"
 
-"@citizenfx/client@^2.0.3970-1":
-  version "2.0.3970-1"
-  resolved "https://registry.yarnpkg.com/@citizenfx/client/-/client-2.0.3970-1.tgz#c089ca79bcc3a0d71e590b5f403b55a453c13822"
-  integrity sha512-aukhLDBDeuLm3vUyvNbMzAcTpPESkpcAjZGLv7OHj/ads2VuFryFFAr2z36StOvplzW+7765qF8MPaBqGeXu8w==
+"@citizenfx/client@^2.0.4748-1":
+  version "2.0.4748-1"
+  resolved "https://registry.yarnpkg.com/@citizenfx/client/-/client-2.0.4748-1.tgz#f1aac844a625315e6fefa5a37f28837d7a8972fc"
+  integrity sha512-rzdz+O/dH2haYiIotEq30l0eWzyJlSTr2ObLNOCr4skXTdC3KnH2nRif5uInZJQux9TxzLELjN7FMHwXuGVPZw==
 
 "@eslint/eslintrc@^0.4.3":
   version "0.4.3"
