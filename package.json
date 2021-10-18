@@ -10,13 +10,13 @@
     "check": "prettier --check \"src/**/*.ts\"",
     "format": "prettier --write \"src/**/*.ts\"",
     "lint": "eslint . --ext .ts",
-    "prepare": "npm run build",
-    "prepublishOnly": "npm run lint",
-    "preversion": "npm run lint",
-    "version": "npm run format && git add -A src",
-    "postversion": "git push && git push --tags",
+    "prepare": "yarn build",
+    "prepublishOnly": "yarn lint",
+    "preversion": "yarn lint",
+    "version": "yarn format && git add -A src",
+    "postversion": "yarn push && git push --tags",
     "typedoc": "typedoc",
-    "docs": "npm run typedoc -- --options typedoc.json"
+    "docs": "yarn typedoc -- --options typedoc.json"
   },
   "repository": {
     "type": "git",
