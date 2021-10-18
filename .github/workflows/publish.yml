@@ -1,17 +1,17 @@
 name: Publish github package
-on: 
+on:
   workflow_dispatch:
     inputs:
       tag:
-        description: 'npm publish --tag $'     
+        description: 'npm publish --tag $'
         required: true
         default: 'beta'
 jobs:
   build:
-    runs-on: ubuntu-latest 
-    permissions: 
+    runs-on: ubuntu-latest
+    permissions:
       contents: read
-      packages: write 
+      packages: write
     steps:
       - uses: actions/checkout@v2
       # Setup .npmrc file to publish to GitHub Packages
@@ -25,4 +25,9 @@ jobs:
       - run: yarn publish --tag ${{ github.event.inputs.tag }}
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
+      - run: yarn docs
+      - name: publish doc
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs
