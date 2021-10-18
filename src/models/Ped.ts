@@ -6,7 +6,7 @@ import {
   HelmetType,
   RagdollType,
   SpeechModifier,
-  VehicleSeat
+  VehicleSeat,
 } from '../enums';
 import { WeaponHash } from '../hashes';
 import { Tasks } from '../Tasks';
