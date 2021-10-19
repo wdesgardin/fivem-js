@@ -42,7 +42,7 @@ export abstract class World {
    *
    * @param value The camera to render.
    */
-  public static set RenderingCamera(value: Camera) {
+  public static set RenderingCamera(value: Camera | null) {
     if (value === null) {
       RenderScriptCams(false, false, 3000, true, false);
     } else {
