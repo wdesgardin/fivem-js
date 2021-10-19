@@ -48,6 +48,14 @@ export class Entity {
     NetworkConcealEntity(this.handle, concealed);
   }
 
+  public get HasNetworkControl(): boolean {
+    return NetworkHasControlOfEntity(this.handle);
+  }
+
+  public get IsNetworked(): boolean {
+    return NetworkGetEntityIsNetworked(this.handle);
+  }
+
   public get Health(): number {
     return GetEntityHealth(this.handle);
   }
@@ -502,5 +510,22 @@ export class Entity {
   public markAsNoLongerNeeded(): void {
     SetEntityAsMissionEntity(this.Handle, false, true);
     SetEntityAsNoLongerNeeded(this.Handle);
+  }
+
+  public requestNetworkControl(timeout = 1000): Promise<boolean> {
+    return new Promise(resolve => {
+      if (NetworkHasControlOfEntity(this.Handle)) resolve(true);
+
+      NetworkRequestControlOfEntity(this.Handle);
+
+      const start = GetGameTimer();
+      const interval = setInterval(() => {
+        const hasControl = NetworkHasControlOfEntity(this.Handle);
+        if (hasControl || GetGameTimer() - start > timeout) {
+          clearInterval(interval);
+          resolve(hasControl);
+        }
+      }, 100);
+    });
   }
 }
