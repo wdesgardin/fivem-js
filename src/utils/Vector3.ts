@@ -61,7 +61,7 @@ export class Vector3 implements Vec3 {
     return Vector3.divide(v, v.Length);
   }
 
-  public static distance2D(v1: Vec3, v2: Vec3): number {
+  public static distance2d(v1: Vec3, v2: Vec3): number {
     return Math.abs(Math.sqrt(Math.pow(v1.x - v2.x, 2) + Math.pow(v1.y - v2.y, 2)));
   }
 
@@ -126,8 +126,8 @@ export class Vector3 implements Vec3 {
     this.z = v.z;
   }
 
-  public absDistance2D(v: Vec3): number {
-    return Vector3.absDistance2D(this, v);
+  public distance2d(v: Vec3): number {
+    return Vector3.distance2d(this, v);
   }
 
   public get Length(): number {
