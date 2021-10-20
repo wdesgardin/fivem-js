@@ -6,7 +6,7 @@ import {
   HelmetType,
   RagdollType,
   SpeechModifier,
-  VehicleSeat,
+  VehicleSeat
 } from '../enums';
 import { WeaponHash } from '../hashes';
 import { Tasks } from '../Tasks';
@@ -448,8 +448,8 @@ export class Ped extends Entity {
     SetDriveTaskDrivingStyle(this.handle, Number(style));
   }
 
-  public get Task(): Tasks | undefined {
-    if (this.tasks === null) {
+  public get Task(): Tasks {
+    if (!this.tasks) {
       this.tasks = new Tasks(this);
     }
 
