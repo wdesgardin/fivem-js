@@ -1,11 +1,8 @@
 name: Publish github package
 on:
-  workflow_dispatch:
-    inputs:
-      tag:
-        description: 'npm publish --tag $'
-        required: true
-        default: 'beta'
+  release:
+    types: [created]
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -14,15 +11,13 @@ jobs:
       packages: write
     steps:
       - uses: actions/checkout@v2
-      # Setup .npmrc file to publish to GitHub Packages
       - uses: actions/setup-node@v2
         with:
           node-version: '14.x'
           registry-url: 'https://npm.pkg.github.com'
-          # Defaults to the user or organization that owns the workflow file
           scope: '@wdesgardin'
       - run: yarn
-      - run: yarn publish --tag ${{ github.event.inputs.tag }}
+      - run: yarn publish
         env:
           NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
       - run: yarn docs
