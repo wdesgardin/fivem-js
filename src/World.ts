@@ -1,7 +1,8 @@
-import { Entity, Model, Prop } from './';
+import { Entity, Model, Prop, Vec3 } from './';
 import { Blip } from './Blip';
 import { Camera } from './Camera';
 import { CloudHat, IntersectOptions, MarkerType, Weather } from './enums';
+import { PedType } from './enums/PedType';
 import { PickupType } from './enums/PickupType';
 import { VehicleHash } from './hashes';
 import { Ped, Vehicle } from './models';
@@ -350,6 +351,34 @@ export abstract class World {
   }
 
   /**
+   * Gets the closest [[`Ped`]] to a given position.
+   * @param position Position to get closest ped to
+   * @param radius Max radius to search for ped
+   * @param type The [[`PedType`]] to search for
+   * @param onlyWalkings Only search for walkings ped
+   * @returns Closest ped if found, otherwise null
+   */
+  public static getClosestPed(
+    position: Vector3,
+    radius: number,
+    type: PedType.Anyped,
+    onlyWalkings = false,
+  ): Ped | null {
+    const [found, ped] = GetClosestPed(
+      position.x,
+      position.y,
+      position.z,
+      radius,
+      onlyWalkings,
+      false,
+      false,
+      false,
+      type,
+    );
+    return found ? new Ped(ped) : null;
+  }
+
+  /**
    * Creates a [[`Ped`]] with a random model.
    *
    * ```typescript
@@ -426,6 +455,36 @@ export abstract class World {
   }
 
   /**
+   * Gest the closest [[`Vehicle`]] to a given position.
+   *
+   * Only returns non police cars and motorbikes with the flag set to 70.
+   * See: pastebin.com/kghNFkRi
+   *
+   * @param position Position to get closest vehicle to
+   * @param radius Max radius to search for vehicle
+   * @param model Limit to vehicles with this [[`Model`]]
+   * @param flags The bitwise flags altering the function's behaviour
+   * @returns The closest vehicle to the position if found, otherwise null
+   */
+  public static getClosestVehicle(
+    position: Vec3,
+    radius: number,
+    model: Model = null,
+    flags = 70,
+  ): Vehicle | null {
+    const vehicle = GetClosestVehicle(
+      position.x,
+      position.y,
+      position.z,
+      radius,
+      model?.Hash || 0,
+      flags,
+    );
+
+    return vehicle != 0 ? new Vehicle(vehicle) : null;
+  }
+
+  /**
    * Spawns a [[`Prop`]] at the given position.
    *
    * ```typescript
@@ -461,6 +520,33 @@ export abstract class World {
     }
 
     return prop;
+  }
+
+  /**
+   * Gets the closest [[`Prop`]] to a given position.
+   * @param position The position to get the closest prop to
+   * @param radius Max raidus to search for props
+   * @param model The [[`Model`]] of the prop to search for
+   * @param excludePersistents If set to true, will exclude [[`Props`]] with the persistent (mission entity) flag set
+   * @returns The props if found, otherwise null
+   */
+  public static getClosestProp(
+    position: Vec3,
+    radius: number,
+    model: Model,
+    excludePersistents = false,
+  ): Prop | null {
+    const prop = GetClosestObjectOfType(
+      position.x,
+      position.y,
+      position.z,
+      radius,
+      model.Hash,
+      excludePersistents,
+      false,
+      false,
+    );
+    return prop != 0 ? new Prop(prop) : null;
   }
 
   /**
