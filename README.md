@@ -7,6 +7,9 @@
   <a href="https://github.com/wdesgardin/fivem-js/blob/master/LICENSE">
     <img src="https://img.shields.io/badge/License-MIT-blue.svg?logo=github" alt="License: MIT">
   </a>
+    <a href="https://www.npmjs.com/package/@wdesgardin/fivem-js">
+    <img src="https://img.shields.io/npm/v/@wdesgardin%2ffivem-js?style=flat" alt="npm version">
+  </a>
   <a href="https://github.com/wdesgardin/fivem-js/actions/workflows/main.yml">
     <img alt="Github master branch state" src="https://img.shields.io/github/workflow/status/wdesgardin/fivem-js/CI?logo=github">
   </a>
@@ -19,7 +22,7 @@
 
 Functionality of this wrapper is **based on the FiveM C# wrapper** - [link](https://github.com/citizenfx/fivem/tree/master/code/client/clrcore/External). It's a feature-rich set of helper classes, objects, and functions to help you develop your project faster.
 
-This library was originally created by <a href="https://github.com/d0p3t/fivem-js">d0p3t</a>. I am maintaining it for the moment for my personal use.
+This library was originally created by <a href="https://github.com/d0p3t/fivem-js">d0p3t</a>.
 
 ## Features
 
@@ -32,8 +35,6 @@ This library was originally created by <a href="https://github.com/d0p3t/fivem-j
 In other words, whatever the FiveM C# wrapper can do, this package can as well and more!
 
 ## Download & Install
-
-Setup your personnal access token to [use Github Packages with npm](https://docs.github.com/en/packages/working-with-a-github-packages-registry/working-with-the-npm-registry#authenticating-with-a-personal-access-token), then run
 
 `npm install @wdesgardin/fivem-js`
 
