@@ -449,5 +449,41 @@ export abstract class Game {
     return Game.doesGXTEntryExist(entry) ? GetLabelText(entry.toString()) : '';
   }
 
+  /**
+   * Creates an input box for enabling a user to input text using the keyboard
+   * @param maxLength The maximum length allowed for the input string
+   * @param windowTitle The input box title
+   * @param defaultText The initial text within the input, will be truncated if longer than maxLength
+   * @returns User's input
+   */
+  public static getUserInput(
+    maxLength: number,
+    windowTitle = 'Enter message',
+    defaultText = '',
+  ): Promise<string> {
+    return new Promise(resolve => {
+      if (defaultText.length > maxLength) defaultText = defaultText.substr(0, maxLength);
+
+      AddTextEntry('NET_STABLE_RENAME_MOUNT_PROMPT', windowTitle);
+      DisplayOnscreenKeyboard(
+        1,
+        'NET_STABLE_RENAME_MOUNT_PROMPT',
+        '',
+        defaultText,
+        '',
+        '',
+        '',
+        maxLength,
+      );
+
+      const tick = setTick(() => {
+        if (UpdateOnscreenKeyboard() != 0) {
+          clearTick(tick);
+          resolve(GetOnscreenKeyboardResult());
+        }
+      });
+    });
+  }
+
   protected static cachedPlayer: Player;
 }
