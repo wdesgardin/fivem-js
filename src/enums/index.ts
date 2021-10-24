@@ -39,19 +39,20 @@ export { SpeechModifier } from './SpeechModifier';
 export {
   VehicleClass,
   VehicleColor,
+  VehicleDoorIndex,
   VehicleLandingGearState,
   VehicleLockStatus,
+  VehicleModType,
   VehicleNeonLight,
+  VehiclePaintType,
   VehicleRoofState,
   VehicleSeat,
-  VehicleWindowTint,
-  VehicleWindowIndex,
-  VehicleModType,
   VehicleToggleModType,
-  VehiclePaintType,
-  VehicleDoorIndex,
-  VehicleWheelType,
   VehicleWheelIndex,
+  VehicleWheelType,
+  VehicleWindowIndex,
+  VehicleWindowTint,
 } from './Vehicle';
+export { WeaponTypeFlags } from './WeaponTypeFlags';
 export { Weather } from './Weather';
 export { ZoneID } from './ZoneID';

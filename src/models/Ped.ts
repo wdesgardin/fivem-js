@@ -7,6 +7,7 @@ import {
   RagdollType,
   SpeechModifier,
   VehicleSeat,
+  WeaponTypeFlags,
 } from '../enums';
 import { WeaponHash } from '../hashes';
 import { Tasks } from '../Tasks';
@@ -679,6 +680,10 @@ export class Ped extends Entity {
     const ped = new Ped(ClonePed(this.handle, isNetwork, false, false));
     if (ped?.exists() && heading) ped.Heading = heading;
     return ped;
+  }
+
+  public isArmed(typeFlag: WeaponTypeFlags = 7): boolean {
+    return IsPedArmed(this.handle, typeFlag);
   }
 
   public exists(ped?: Ped): boolean {
