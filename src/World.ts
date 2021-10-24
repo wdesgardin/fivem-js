@@ -361,7 +361,7 @@ export abstract class World {
   public static getClosestPed(
     position: Vector3,
     radius: number,
-    type: PedType.Anyped,
+    type = PedType.Anyped,
     onlyWalkings = false,
   ): Ped | null {
     const [found, ped] = GetClosestPed(
