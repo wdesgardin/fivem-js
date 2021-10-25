@@ -1,6 +1,6 @@
 {
   "name": "@wdesgardin/fivem-js",
-  "version": "1.6.3",
+  "version": "1.6.4",
   "description": "Javascript/Typescript wrapper for the FiveM natives",
   "sideEffects": [
     "./lib/models/*.js"
