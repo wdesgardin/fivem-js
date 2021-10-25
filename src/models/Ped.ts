@@ -686,11 +686,7 @@ export class Ped extends Entity {
     return IsPedArmed(this.handle, typeFlag);
   }
 
-  public exists(ped?: Ped): boolean {
-    if (ped === null) {
-      return super.exists() && GetEntityType(this.handle) === 1;
-    }
-
-    return ped?.exists() ?? false;
+  public exists(): boolean {
+    return super.exists() && GetEntityType(this.handle) === 1;
   }
 }
