@@ -6,6 +6,8 @@ export interface Vec3 {
 }
 
 export class Vector3 implements Vec3 {
+  public static readonly Zero: Vector3 = new Vector3(0, 0, 0);
+
   public static create(v1: number | Vec3): Vector3 {
     if (typeof v1 === 'number') {
       return new Vector3(v1, v1, v1);
@@ -15,6 +17,10 @@ export class Vector3 implements Vec3 {
 
   public static fromArray(vector: number[]): Vector3 {
     return new Vector3(vector[0] || 0, vector[1] || 0, vector[2] || 0);
+  }
+
+  public static toArray(v: Vec3): number[] {
+    return [v.x, v.y, v.z];
   }
 
   public static clone(v1: Vec3): Vector3 {
@@ -71,6 +77,10 @@ export class Vector3 implements Vec3 {
     return new Vector3(this.x, this.y, this.z);
   }
 
+  public toArray(): number[] {
+    return Vector3.toArray(this);
+  }
+
   /**
    * The product of the Euclidean magnitudes of this and another Vector3.
    *
@@ -104,7 +114,7 @@ export class Vector3 implements Vec3 {
     return Vector3.dotProduct(this, v);
   }
 
-  public add(v: number | Vec3): Vec3 {
+  public add(v: number | Vec3): Vector3 {
     return Vector3.add(this, v);
   }
 
@@ -116,7 +126,7 @@ export class Vector3 implements Vec3 {
     return Vector3.multiply(this, v);
   }
 
-  public divide(v: number | Vec3): Vec3 {
+  public divide(v: number | Vec3): Vector3 {
     return Vector3.divide(this, v);
   }
 
