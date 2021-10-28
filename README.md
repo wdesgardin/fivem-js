@@ -18,7 +18,7 @@
   </a>
 </p>
 
-<a href="https://wdesgardin.github.io/fivem-js/">Documentation</a>
+<a href="https://fivemjs.wdesgardin.fr/">Documentation</a>
 
 Functionality of this wrapper is **based on the FiveM C# wrapper** - [link](https://github.com/citizenfx/fivem/tree/master/code/client/clrcore/External). It's a feature-rich set of helper classes, objects, and functions to help you develop your project faster.
 
