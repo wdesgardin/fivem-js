@@ -143,4 +143,8 @@ export class Vector3 implements Vec3 {
   public get Length(): number {
     return Math.sqrt(this.x * this.x + this.y * this.y + this.z * this.z);
   }
+
+  public get LengthSquared(): number {
+    return this.x * this.x + this.y * this.y + this.z * this.z;
+  }
 }
