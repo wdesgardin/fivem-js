@@ -4,6 +4,7 @@ import { Camera } from './Camera';
 import { CloudHat, IntersectOptions, MarkerType, Weather } from './enums';
 import { PedType } from './enums/PedType';
 import { PickupType } from './enums/PickupType';
+import { Game } from './Game';
 import { VehicleHash } from './hashes';
 import { Ped, Vehicle } from './models';
 import { Pickup } from './Pickup';
@@ -1057,6 +1058,46 @@ export abstract class World {
     handles.forEach(handle => pickups.push(new Pickup(handle)));
 
     return pickups;
+  }
+
+  public static getWaypointBlip(): Blip | null {
+    if (!Game.IsWaypointActive) return null;
+
+    for (
+      let handle = GetBlipInfoIdIterator(), blip = GetFirstBlipInfoId(handle);
+      DoesBlipExist(handle);
+      blip = GetNextBlipInfoId(handle)
+    ) {
+      if (GetBlipInfoIdType(blip) === 4) return new Blip(blip);
+    }
+
+    return null;
+  }
+
+  public static removeWaypoint(): void {
+    SetWaypointOff();
+  }
+
+  public static get WaypointPosition(): Vector3 {
+    const waypointBlip = this.getWaypointBlip();
+
+    if (waypointBlip == null) {
+      return Vector3.Zero;
+    }
+
+    const position = waypointBlip.Position;
+    position.z = this.getGroundHeight(position);
+
+    return position;
+  }
+
+  public static set WaypointPosition(position: Vector3) {
+    SetNewWaypoint(position.x, position.y);
+  }
+
+  public static getGroundHeight(position: Vector3): number {
+    RequestCollisionAtCoord(position.x, position.z, 1000.0);
+    return GetGroundZFor_3dCoord(position.x, position.y, 1000.0, false)[1];
   }
 
   private static currentCloudHat: CloudHat = CloudHat.Clear;
