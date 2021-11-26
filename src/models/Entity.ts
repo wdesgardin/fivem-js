@@ -1,5 +1,6 @@
 import { Blip } from '../Blip';
 import { ForceType } from '../enums';
+import { DecorTypes } from '../enums/DecorTypes';
 import { Game } from '../Game';
 import { MaterialHash, WeaponHash } from '../hashes';
 import { Model } from '../Model';
@@ -527,5 +528,50 @@ export class Entity {
         }
       }, 100);
     });
+  }
+
+  public hasDecor(propertyName: string): boolean {
+    return DecorExistOn(this.Handle, propertyName);
+  }
+
+  public hasDecorOfType(propertyName: string, type: DecorTypes): boolean {
+    return this.hasDecor(propertyName) && DecorIsRegisteredAsType(propertyName, type);
+  }
+
+  public getBoolDecor(propertyName: string): boolean | null {
+    return this.hasDecorOfType(propertyName, DecorTypes.Bool)
+      ? DecorGetBool(this.Handle, propertyName)
+      : null;
+  }
+
+  public setBoolDecor(propertyName: string): void {
+    DecorRegister(propertyName, DecorTypes.Bool);
+    DecorSetBool(this.Handle, propertyName, true);
+  }
+
+  public getFloatDecor(proertyName: string): number | null {
+    return this.hasDecorOfType(proertyName, DecorTypes.Float)
+      ? DecorGetFloat(this.Handle, proertyName)
+      : null;
+  }
+
+  public setFloatDecor(propertyName: string, value: number): void {
+    DecorRegister(propertyName, DecorTypes.Float);
+    DecorSetFloat(this.Handle, propertyName, value);
+  }
+
+  public getIntDecor(propertyName: string): number | null {
+    return this.hasDecorOfType(propertyName, DecorTypes.Int)
+      ? DecorGetInt(this.Handle, propertyName)
+      : null;
+  }
+
+  public setIntDecor(propertyName: string, value: number): void {
+    DecorRegister(propertyName, DecorTypes.Int);
+    DecorSetInt(this.Handle, propertyName, value);
+  }
+
+  public removeDecor(propertyName: string): void {
+    DecorRemove(this.Handle, propertyName);
   }
 }
