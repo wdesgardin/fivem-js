@@ -1,12 +1,4 @@
 import {
-  Entity,
-  Ped,
-  VehicleDoorCollection,
-  VehicleModCollection,
-  VehicleWheelCollection,
-  VehicleWindowCollection,
-} from './';
-import {
   RadioStation,
   VehicleClass,
   VehicleLandingGearState,
@@ -14,11 +6,31 @@ import {
   VehicleRoofState,
   VehicleSeat,
 } from '../enums';
-import { Model } from '../Model';
 import { Game } from '../Game';
+import { Model } from '../Model';
 import { Vector3 } from '../utils';
+import {
+  Entity,
+  Ped,
+  VehicleDoorCollection,
+  VehicleModCollection,
+  VehicleWheelCollection,
+  VehicleWindowCollection,
+} from './';
 
 export class Vehicle extends Entity {
+  public static fromHandle(handle: number): Vehicle | null {
+    if (GetEntityType(handle) == 2) {
+      return new Vehicle(handle);
+    }
+
+    return null;
+  }
+
+  public static fromNetworkId(networkId: number): Vehicle | null {
+    return this.fromHandle(NetworkGetEntityFromNetworkId(networkId));
+  }
+
   public static getModelDisplayName(vehicleModel: Model): string {
     return GetDisplayNameFromVehicleModel(vehicleModel.Hash);
   }

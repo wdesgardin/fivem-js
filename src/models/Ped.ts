@@ -19,6 +19,18 @@ export class Ped extends Entity {
     return typeof ped !== 'undefined' && ped.exists();
   }
 
+  public static fromHandle(handle: number): Ped | null {
+    if (GetEntityType(handle) == 1) {
+      return new Ped(handle);
+    }
+
+    return null;
+  }
+
+  public static fromNetworkId(networkId: number): Ped | null {
+    return this.fromHandle(NetworkGetEntityFromNetworkId(networkId));
+  }
+
   private weapons: WeaponCollection | undefined;
   private pedBones: PedBoneCollection | undefined;
 
