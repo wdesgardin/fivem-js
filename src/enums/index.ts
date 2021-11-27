@@ -10,6 +10,7 @@ export { CheckpointCustomIconStyle, CheckpointIcon } from './Checkpoint';
 export { CloudHat } from './CloudHat';
 export { Control } from './Control';
 export { CursorSprite } from './CursorSprite';
+export { DecorTypes } from './DecorTypes';
 export { DrivingStyle, VehicleDrivingFlags } from './Driving';
 export { ExplosionType } from './ExplosionType';
 export { FiringPattern } from './FiringPattern';

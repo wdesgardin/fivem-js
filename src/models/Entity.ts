@@ -544,9 +544,10 @@ export class Entity {
       : null;
   }
 
-  public setBoolDecor(propertyName: string): void {
-    DecorRegister(propertyName, DecorTypes.Bool);
-    DecorSetBool(this.Handle, propertyName, true);
+  public setBoolDecor(propertyName: string, value: boolean): void {
+    if (!this.hasDecorOfType(propertyName, DecorTypes.Bool))
+      DecorRegister(propertyName, DecorTypes.Bool);
+    DecorSetBool(this.Handle, propertyName, value);
   }
 
   public getFloatDecor(proertyName: string): number | null {
@@ -556,7 +557,8 @@ export class Entity {
   }
 
   public setFloatDecor(propertyName: string, value: number): void {
-    DecorRegister(propertyName, DecorTypes.Float);
+    if (!this.hasDecorOfType(propertyName, DecorTypes.Float))
+      DecorRegister(propertyName, DecorTypes.Float);
     DecorSetFloat(this.Handle, propertyName, value);
   }
 
@@ -567,7 +569,8 @@ export class Entity {
   }
 
   public setIntDecor(propertyName: string, value: number): void {
-    DecorRegister(propertyName, DecorTypes.Int);
+    if (!this.hasDecorOfType(propertyName, DecorTypes.Int))
+      DecorRegister(propertyName, DecorTypes.Int);
     DecorSetInt(this.Handle, propertyName, value);
   }
 
