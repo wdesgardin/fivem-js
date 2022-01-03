@@ -23,6 +23,10 @@ export class Camera {
     this.handle = handle;
   }
 
+  public get Handle(): number {
+    return this.handle;
+  }
+
   public get IsActive(): boolean {
     return !!IsCamActive(this.handle);
   }
