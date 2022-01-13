@@ -1,5 +1,5 @@
 import { WeaponHash } from '../hashes';
-import { enumValues, getUInt32FromUint8Array } from '../utils';
+import { enumValues, getUInt32FromUint8Array, IsClient } from '../utils';
 
 /***
  * WeaponHudStats
@@ -66,4 +66,4 @@ function initializeOnce() {
   };
 }
 
-if (!IsDuplicityVersion()) initializeOnce()();
+if (IsClient()) initializeOnce()();

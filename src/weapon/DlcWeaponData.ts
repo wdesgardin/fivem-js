@@ -1,5 +1,5 @@
 import { WeaponHash } from '../hashes';
-import { getStringFromUInt8Array, getUInt32FromUint8Array } from '../utils';
+import { getStringFromUInt8Array, getUInt32FromUint8Array, IsClient } from '../utils';
 
 /**
  * DlcWeaponData
@@ -102,4 +102,4 @@ function initializeOnce() {
   };
 }
 
-if (!IsDuplicityVersion()) initializeOnce()();
+if (IsClient()) initializeOnce()();

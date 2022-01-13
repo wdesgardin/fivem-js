@@ -9,13 +9,13 @@ import {
   Text,
   UIMenuSeparatorItem,
 } from '../';
-import { Audio, CursorSprite, Game, GameplayCamera, InputMode, Wait } from '../../';
+import { Audio, CursorSprite, Game, GameplayCamera, InputMode, IsClient, Wait } from '../../';
 import { Alignment, Control, Font, MenuAlignment } from '../../enums';
 import { Color, Crypto, LiteEvent, Point, Size } from '../../utils';
 import { UIMenuCheckboxItem, UIMenuItem, UIMenuListItem, UIMenuSliderItem } from './items';
 
 export class Menu {
-  public static screenAspectRatio = IsDuplicityVersion() ? 0 : Screen.AspectRatio;
+  public static screenAspectRatio = IsClient() ? Screen.AspectRatio : 0;
   public static screenHeight = 1080;
   public static screenWidth = Menu.screenHeight * Menu.screenAspectRatio;
   public static screenResolution = new Size(Menu.screenWidth, Menu.screenHeight);
