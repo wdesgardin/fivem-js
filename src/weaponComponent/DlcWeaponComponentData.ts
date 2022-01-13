@@ -1,4 +1,4 @@
-import { getStringFromUInt8Array, getUInt32FromUint8Array } from '../utils';
+import { getStringFromUInt8Array, getUInt32FromUint8Array, IsClient } from '../utils';
 import { WeaponComponentHash } from './WeaponComponentHash';
 
 /**
@@ -91,4 +91,4 @@ function initializeOnce() {
   };
 }
 
-if (!IsDuplicityVersion()) initializeOnce()();
+if (IsClient()) initializeOnce()();
